@@ -20,7 +20,7 @@ public class JavaTest {
 						tempArray[2] = result[i+3];
 						
 						String subEq = "( " + tempArray[0] + " " + tempArray[1] + " " + tempArray[2] + " )";
-						double aNumber = calSubEquation(tempArray);
+						double aNumber = calSubFormula(tempArray);
 						sum = sum.replace(subEq, "" + aNumber);	
 						
 						break;
@@ -39,7 +39,7 @@ public class JavaTest {
 						tempArray[2] = result[i+1];
 						
 						String subEq = tempArray[0] + " " + tempArray[1] + " " + tempArray[2];
-						double aNumber = calSubEquation(tempArray);
+						double aNumber = calSubFormula(tempArray);
 						sum = sum.replace(subEq, "" + aNumber);	
 						
 						break;
@@ -58,7 +58,7 @@ public class JavaTest {
 						tempArray[2] = result[i+1];
 						
 						String subEq = tempArray[0] + " " + tempArray[1] + " " + tempArray[2];
-						double aNumber = calSubEquation(result);
+						double aNumber = calSubFormula(result);
 						sum = sum.replace(subEq, "" + aNumber);	
 						break;
 					}
@@ -70,12 +70,12 @@ public class JavaTest {
 			result = sum.split("\\s");
 		}
 		
-		answer = calSubEquation(result);
+		answer = calSubFormula(result);
 		
 		return answer;
 	}
 	
-	private static double calSubEquation(String[] result) {
+	private static double calSubFormula(String[] result) {
 		double answer = 0;
 		
 		double firstNum = 0;
