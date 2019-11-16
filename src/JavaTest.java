@@ -20,7 +20,7 @@ public class JavaTest {
 						tempArray[2] = result[i+3];
 						
 						String subEq = "( " + tempArray[0] + " " + tempArray[1] + " " + tempArray[2] + " )";
-						double aNumber = calSubFormula(tempArray);
+						double aNumber = calSimpleFormula(tempArray);
 						sum = sum.replace(subEq, "" + aNumber);	
 						
 						break;
@@ -39,7 +39,7 @@ public class JavaTest {
 						tempArray[2] = result[i+1];
 						
 						String subEq = tempArray[0] + " " + tempArray[1] + " " + tempArray[2];
-						double aNumber = calSubFormula(tempArray);
+						double aNumber = calSimpleFormula(tempArray);
 						sum = sum.replace(subEq, "" + aNumber);	
 						
 						break;
@@ -58,7 +58,7 @@ public class JavaTest {
 						tempArray[2] = result[i+1];
 						
 						String subEq = tempArray[0] + " " + tempArray[1] + " " + tempArray[2];
-						double aNumber = calSubFormula(result);
+						double aNumber = calSimpleFormula(result);
 						sum = sum.replace(subEq, "" + aNumber);	
 						break;
 					}
@@ -70,21 +70,21 @@ public class JavaTest {
 			result = sum.split("\\s");
 		}
 		
-		answer = calSubFormula(result);
+		answer = calSimpleFormula(result);
 		
 		return answer;
 	}
 	
-	private static double calSubFormula(String[] result) {
+	private static double calSimpleFormula(String[] formula) {
 		double answer = 0;
 		
 		double firstNum = 0;
 		double secondNum = 0;
 		String operator = null;
 		
-		firstNum = Double.parseDouble(result[0]);
-		operator = result[1];
-		secondNum = Double.parseDouble(result[2]);
+		firstNum = Double.parseDouble(formula[0]);
+		operator = formula[1];
+		secondNum = Double.parseDouble(formula[2]);
 		
 		if (operator.equals("+")) {
 			answer = firstNum + secondNum;
