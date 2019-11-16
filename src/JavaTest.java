@@ -1,15 +1,13 @@
 public class JavaTest {
-	
-	
-	
+
 	public static double calculate(String sum) {
 		double answer = 0;
-		
+
 		String[] result = sum.split("\\s");
-		
+
 		while (result.length > 3) {	
 			String[] tempArray;
-			
+
 			if (sum.contains("(")) {
 				int i=0;
 				for (String s: result) {
@@ -18,18 +16,18 @@ public class JavaTest {
 						tempArray[0] = result[i+1];
 						tempArray[1] = result[i+2];
 						tempArray[2] = result[i+3];
-						
+
 						String subEq = "( " + tempArray[0] + " " + tempArray[1] + " " + tempArray[2] + " )";
 						double aNumber = calSimpleFormula(tempArray);
 						sum = sum.replace(subEq, "" + aNumber);	
-						
+
 						break;
 					}
 					i++;
 				}
 			}
 			else if (sum.contains("*") || sum.contains("/")) {					
-				
+
 				int i=0;
 				for (String s: result) {
 					if (s.equalsIgnoreCase("*") || s.equalsIgnoreCase("/")) {
@@ -37,18 +35,17 @@ public class JavaTest {
 						tempArray[0] = result[i-1];
 						tempArray[1] = s;
 						tempArray[2] = result[i+1];
-						
+
 						String subEq = tempArray[0] + " " + tempArray[1] + " " + tempArray[2];
 						double aNumber = calSimpleFormula(tempArray);
 						sum = sum.replace(subEq, "" + aNumber);	
-						
+
 						break;
 					}
 					i++;
 				}
 			}
 			else {
-				
 				int i=0;
 				for (String s: result) {
 					if (s.equalsIgnoreCase("+") || s.equalsIgnoreCase("-")) {
@@ -56,7 +53,7 @@ public class JavaTest {
 						tempArray[0] = result[i-1];
 						tempArray[1] = s;
 						tempArray[2] = result[i+1];
-						
+
 						String subEq = tempArray[0] + " " + tempArray[1] + " " + tempArray[2];
 						double aNumber = calSimpleFormula(result);
 						sum = sum.replace(subEq, "" + aNumber);	
@@ -64,28 +61,27 @@ public class JavaTest {
 					}
 					i++;
 				}
-				
 			}
-			
+
 			result = sum.split("\\s");
 		}
-		
+
 		answer = calSimpleFormula(result);
-		
+
 		return answer;
 	}
-	
+
 	private static double calSimpleFormula(String[] formula) {
 		double answer = 0;
-		
+
 		double firstNum = 0;
 		double secondNum = 0;
 		String operator = null;
-		
+
 		firstNum = Double.parseDouble(formula[0]);
 		operator = formula[1];
 		secondNum = Double.parseDouble(formula[2]);
-		
+
 		if (operator.equals("+")) {
 			answer = firstNum + secondNum;
 		}
@@ -98,10 +94,10 @@ public class JavaTest {
 		else if (operator.equals("/")) {
 			answer = firstNum / secondNum;
 		}
-		
+
 		return answer;
 	}
-	
+
 	public static void main(String[] args) {  		
 		System.out.println("1.	1 + 1 = " + calculate("1 + 1"));
 		System.out.println("2.	2 * 2 = " + calculate("2 * 2"));
@@ -112,5 +108,5 @@ public class JavaTest {
 		System.out.println("7.	1 + 1 * 3 = " + calculate("1 + 1 * 3"));
 		System.out.println("8.      ( 11.5 + 15.4 ) + 10.1 = " + calculate("( 11.5 + 15.4 ) + 10.1"));
 		System.out.println("9.	23 - ( 29.3 - 12.5 ) = " + calculate("23 - ( 29.3 - 12.5 )"));
-    }  
+	}  
 }
