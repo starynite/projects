@@ -5,7 +5,7 @@ public class JavaTest {
 
 		String[] result = sum.split("\\s");
 
-		while (result.length > 3) {	
+		while (result.length > 3) {
 			String[] tempArray;
 
 			if (sum.contains("(")) {
