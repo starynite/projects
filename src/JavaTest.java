@@ -26,8 +26,7 @@ public class JavaTest {
 					i++;
 				}
 			}
-			else if (sum.contains("*") || sum.contains("/")) {					
-
+			else if (sum.contains("*") || sum.contains("/")) {
 				int i=0;
 				for (String s: result) {
 					if (s.equalsIgnoreCase("*") || s.equalsIgnoreCase("/")) {
